@@ -7,6 +7,7 @@
     <title>playjs</title>
     <link rel="stylesheet" href="codemirror.css">
     <script src="codemirror.js"></script>
+    <script src="javascript.js"></script>
     <style>
         .container{
             margin: 0;
@@ -55,6 +56,9 @@
         matchBrackets: true,
         mode: "javascript"
       });
+        $('#code').on('change',function(){
+            console.log(editor.getValue());
+        })
     });
 </script>
 </html>
