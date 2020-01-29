@@ -36,8 +36,8 @@
         }
         .langdrop{
             position: absolute;
-            left: 500px;
-            top:20px;
+            left: 600px;
+            top:11px;
         }
     </style>
 </head>
@@ -61,13 +61,12 @@
         </div>
     </div>
 </body>
-</html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
-      var code = $(".codemirror-textarea")[0];
-      var editor = CodeMirror.fromTextArea(code, {
-        lineNumbers: true
+      var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+        lineNumbers: true,
+        matchBrackets: true
       });
       $('#lang').on('change', function() {
         var language = $('#lang').find(":selected").text();
@@ -77,3 +76,4 @@
       });
     });
 </script>
+</html>
