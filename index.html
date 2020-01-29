@@ -30,11 +30,17 @@
           height:300px;
           border: 1px solid #ccc;
         }
+        .code{
+            height: 100%;
+            width:100%;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="ide"></div>
+        <div class="ide">
+            <textarea id="code" class="code"></textarea>
+        </div>
         <div class="main">
           <div class="res"></div>
           <div class="con"></div>
@@ -42,3 +48,8 @@
     </div>
 </body>
 </html>
+<script>
+  var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    lineNumbers: true
+  });
+</script>
