@@ -34,12 +34,26 @@
             height: 100%;
             width:100%;
         }
+        .langdrop{
+            position: absolute;
+            left: 500px;
+            top:20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="ide">
             <textarea id="code" class="code"></textarea>
+            <div class="langdrop">
+                <select id="lang" name="language">
+                    <option value="5">javascript</option>
+                    <option value="1">python</option>
+                    <option value="6">ruby</option>
+                    <option value="8">shell</option>
+                    <option value="9">css</option>
+                </select>
+            </div>
         </div>
         <div class="main">
           <div class="res"></div>
@@ -48,8 +62,18 @@
     </div>
 </body>
 </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-  var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-    lineNumbers: true
-  });
+    $(document).ready(function(){
+      var code = $(".codemirror-textarea")[0];
+      var editor = CodeMirror.fromTextArea(code, {
+        lineNumbers: true
+      });
+      $('#lang').on('change', function() {
+        var language = $('#lang').find(":selected").text();
+        console.log(language);
+        editor.setOption("mode", language);
+        CodeMirror.autoLoadMode(editor, language);
+      });
+    });
 </script>
